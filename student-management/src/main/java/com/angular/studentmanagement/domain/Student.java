@@ -1,18 +1,10 @@
 package com.angular.studentmanagement.domain;
 
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "tbl_student")
-@Setter
-@Getter
-@ToString
 public class Student {
 
     @Id
@@ -33,4 +25,76 @@ public class Student {
 
     @Column(name = "created_date")
     private Date createdDate;
+
+    @Column(name = "lastUpdatedDate")
+    private Date lastUpdatedDate;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", grade='" + grade + '\'' +
+                ", createdDate=" + createdDate +
+                ", lastUpdatedDate=" + lastUpdatedDate +
+                '}';
+    }
 }
