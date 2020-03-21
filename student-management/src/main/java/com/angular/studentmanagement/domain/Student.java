@@ -21,7 +21,7 @@ public class Student {
     private String phone;
 
     @Column(name = "grade")
-    private String grade;
+        private String grade;
 
     @Column(name = "created_date")
     private Date createdDate;
