@@ -10,6 +10,7 @@ import { StudentService } from './services/student.service';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { UpdateStudentComponent } from './components/update-student/update-student.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { StudentDetailsComponent } from './components/student-details/student-de
     StudentListComponent,
     CreateStudentComponent,
     UpdateStudentComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     StudentService

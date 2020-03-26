@@ -3,25 +3,20 @@
       <h2>Employee List</h2>
     </div>
     <div class="panel-body">
-      
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Full Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Grade</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let student of students | async ; let i=index">
-            <td>{{i+1}}</td>
+          <tr *ngFor="let student of students | async">  
             <td>{{student.name}}</td>
-            <td>{{student.address}}</td>
             <td>{{student.phone}}</td>
-            <td>{{student.grade}}</td>
+            <td>{{student.address}}</td>
             <td><button (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>
                 <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>

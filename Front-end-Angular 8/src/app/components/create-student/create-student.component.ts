@@ -20,12 +20,11 @@ export class CreateStudentComponent implements OnInit {
 
   newStudent() : void{
     this.submitted = false;
-    this.student = new Student();
   }
 
   save(){
-    this.studentService.createStudent(this.student).subscribe(data => console.log(data));
-    this.student = new Student();
+    this.studentService.createStudent(this.student)
+      .subscribe(data => console.log(data));
     this.gotoList();
   }
 
