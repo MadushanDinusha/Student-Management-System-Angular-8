@@ -11,6 +11,8 @@ import { CreateStudentComponent } from './components/create-student/create-stude
 import { UpdateStudentComponent } from './components/update-student/update-student.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     StudentService

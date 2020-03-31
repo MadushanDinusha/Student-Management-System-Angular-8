@@ -1,32 +1,7 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Employee List</h2>
-    </div>
-    <div class="panel-body">
-      
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Full Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Grade</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let student of students | async ; let i=index">
-            <td>{{i+1}}</td>
-            <td>{{student.name}}</td>
-            <td>{{student.address}}</td>
-            <td>{{student.phone}}</td>
-            <td>{{student.grade}}</td>
-            <td><button (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>
-                <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>    
+<div class="container">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Student-Management</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+</div>
