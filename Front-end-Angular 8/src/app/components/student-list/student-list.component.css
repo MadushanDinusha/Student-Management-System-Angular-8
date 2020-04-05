@@ -1,7 +1,21 @@
-div.container{
-    margin: 0px 40px;
-}
-
 .fill-remaining-space{
     flex: 1 1 auto;
+}
+
+table {
+    width: 100%;
+  }
+
+.hide{
+    display: none;
+}
+
+mat-footer-cell{
+    justify-content: center;
+    font-style: italic ;
+}
+
+mat-footer-row{
+    justify-content: center;
+    font-style: italic ;
 }

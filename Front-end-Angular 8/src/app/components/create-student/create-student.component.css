@@ -8,10 +8,27 @@
     width: 100%;
   }
 
-  div.container{
-    margin: 0px 40px;
-}
 
 .fill-remaining-space{
     flex: 1 1 auto;
+}
+
+mat-radio-button{
+  margin-left: 1rem;
+}
+
+button{
+  margin-left: 1rem;
+}
+
+.add-bottom-margin{
+  margin-bottom: 15%;
+}
+
+.controles-container-second{
+ width: 300px;
+}
+
+.controles-container{
+  margin-left: 15%;
 }

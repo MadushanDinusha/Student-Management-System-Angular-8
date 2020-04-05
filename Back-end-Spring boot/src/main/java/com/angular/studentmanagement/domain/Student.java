@@ -21,7 +21,10 @@ public class Student {
     private String phone;
 
     @Column(name = "grade")
-        private String grade;
+    private String grade;
+
+    @Column(name="gender")
+    private String gender;
 
     @Column(name = "created_date")
     private Date createdDate;
@@ -67,6 +70,14 @@ public class Student {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Date getCreatedDate() {

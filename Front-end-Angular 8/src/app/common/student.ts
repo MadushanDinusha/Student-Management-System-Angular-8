@@ -7,4 +7,5 @@ export class Student {
     createdDate : Date;
     lastUpdatedDate : Date;
     grade : String;
+    gender : String;
 }
