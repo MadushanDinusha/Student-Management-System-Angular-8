@@ -1,21 +1,57 @@
-<h3>Update Employee</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="student.name" name="firstName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="student.phone" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="student.address" name="emailId">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+<div class="container">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Update student</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-button class="close-icon" [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+  </button>
+  </mat-toolbar>
 </div>
+<form (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="center-div">
+      <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <div [hidden]="submitted" style="width: 400px;">
+  
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Full name</mat-label>
+                  <input matInput id="name" required [(ngModel)]="student.name" name="name">
+                </mat-form-field>
+              </div>
+  
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Address</mat-label>
+                  <input matInput id="address" required [(ngModel)]="student.address" name="address">
+                </mat-form-field>
+              </div>
+  
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Phone number</mat-label>
+                  <input matInput id="phone" required [(ngModel)]="student.phone" name="phone">
+                </mat-form-field>
+              </div>
+  
+              <div class="form-group">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Grade</mat-label>
+                  <input matInput id="grade" required [(ngModel)]="student.grade" name="grade">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="warn" type="reset">Clear</button>
+      </div>
+    </div>
+    
+  </div>
+</form>

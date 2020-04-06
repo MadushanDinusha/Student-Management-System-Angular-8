@@ -30,6 +30,24 @@ export class StudentService {
   }
 
   deleteStudent(id: number): Observable<any> {
+    console.log(`${this.baseUrl}/deleteById/${id}`);
     return this.httpClient.delete(`${this.baseUrl}/deleteById/${id}`, { responseType: 'text' });
+    
   }
+  
+  setSession(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  getSession(key: string): any {
+    if (typeof window !== 'undefined') {
+        let retrievedObject = localStorage.getItem(key) as string;
+        return retrievedObject;
+    }
+  }
+
+  clearSession(): void {
+    localStorage.clear();
+  }
+
 }

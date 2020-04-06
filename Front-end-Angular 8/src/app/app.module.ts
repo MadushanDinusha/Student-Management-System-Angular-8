@@ -13,6 +13,7 @@ import { UpdateStudentComponent } from './components/update-student/update-stude
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 
@@ -23,6 +24,8 @@ import { MaterialModule } from './material/material.module';
     CreateStudentComponent,
     UpdateStudentComponent,
     StudentDetailsComponent,
+    MatConfirmDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,9 @@ import { MaterialModule } from './material/material.module';
   providers: [
     StudentService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[CreateStudentComponent,
+    UpdateStudentComponent,
+  MatConfirmDialogComponent]
 })
 export class AppModule { }

@@ -3,10 +3,14 @@
     <span class="fill-remaining-space"></span>
     <span>Add new student</span>
     <span class="fill-remaining-space"></span>
+    <button mat-button class="close-icon" [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+  </button>
   </mat-toolbar>
 </div>
 <form (ngSubmit)="onSubmit()">
 <div class="container">
+  
   <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile>
       <div class="controles-container">
@@ -15,21 +19,21 @@
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Full name</mat-label>
-                <input matInput id="name" required [(ngModel)]="student.name" name="name">
+                <input matInput  id="name" required [(ngModel)]="student.name" name="name">
               </mat-form-field>
             </div>
   
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Address</mat-label>
-                <input matInput id="name" required [(ngModel)]="student.address" name="address">
+                <input matInput id="address" required [(ngModel)]="student.address" name="address">
               </mat-form-field>
             </div>
   
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Phone number</mat-label>
-                <input matInput id="phone" required [(ngModel)]="student.phone" name="phone">
+                <input matInput id="phone"  required [(ngModel)]="student.phone" name="phone">
               </mat-form-field>
             </div>
   
@@ -45,7 +49,7 @@
     <mat-grid-tile>
       <div class="controles-container-second">
         <div class="add-bottom-margin">
-          <mat-radio-group [(ngModel)]="student.gender" name="gender">
+          <mat-radio-group [(ngModel)]="student.gender" name="gender" >
             <mat-radio-button value="Male">Male</mat-radio-button>
             <mat-radio-button value="Female">Female</mat-radio-button>
           </mat-radio-group>
@@ -68,9 +72,3 @@
   </mat-grid-list>
 </div>
 </form>
-
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
-</div>

@@ -1,5 +1,6 @@
 export class Student {
 
+    id : number;
     name : String;
     phone : String;
     address : String;
