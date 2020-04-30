@@ -5,70 +5,73 @@
     <span class="fill-remaining-space"></span>
     <button mat-button class="close-icon" [mat-dialog-close]="true">
       <mat-icon>close</mat-icon>
-  </button>
+    </button>
   </mat-toolbar>
 </div>
-<form (ngSubmit)="onSubmit()">
-<div class="container">
-  
-  <mat-grid-list cols="2" rowHeight="500px">
-    <mat-grid-tile>
-      <div class="controles-container">
-        <div [hidden]="submitted" style="width: 400px;">
-          
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+
+    <mat-grid-list cols="2" rowHeight="500px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <div [hidden]="submitted" style="width: 400px;">
+
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Full name</mat-label>
-                <input matInput  id="name" required [(ngModel)]="student.name" name="name">
+                <input matInput formControlName="name" class="form-control" id="name" required
+                  [(ngModel)]="student.name" name="name">
               </mat-form-field>
             </div>
-  
+
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Address</mat-label>
-                <input matInput id="address" required [(ngModel)]="student.address" name="address">
+                <input matInput formControlName="address" id="address" required [(ngModel)]="student.address"
+                  name="address">
               </mat-form-field>
             </div>
-  
+
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Phone number</mat-label>
-                <input matInput id="phone"  required [(ngModel)]="student.phone" name="phone">
+                <input matInput id="phone" type="number" placeholder="07xxxxxxxx" formControlName="phone" required [(ngModel)]="student.phone" name="phone">
               </mat-form-field>
             </div>
-  
+
             <div class="form-group">
               <mat-form-field class="example-full-width">
                 <mat-label>Grade</mat-label>
-                <input matInput id="grade" required [(ngModel)]="student.grade" name="grade">
+                <input matInput id="grade" type="number" formControlName="grade" required [(ngModel)]="student.grade" name="grade">
               </mat-form-field>
             </div>
+          </div>
         </div>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="controles-container-second">
-        <div class="add-bottom-margin">
-          <mat-radio-group [(ngModel)]="student.gender" name="gender" >
-            <mat-radio-button value="Male">Male</mat-radio-button>
-            <mat-radio-button value="Female">Female</mat-radio-button>
-          </mat-radio-group>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container-second">
+          <div class="add-bottom-margin">
+            <mat-radio-group [(ngModel)]="student.gender" formControlName="gender" name="gender">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="add-bottom-margin">
+            <mat-form-field>
+              <input matInput [(ngModel)]="student.createdDate" formControlName="createdDate" [matDatepicker]="picker"
+                name="createdDate" placeholder="Addmision Date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+
+          <div class="button-row">
+            <button mat-raised-button [disabled]="!registerForm.valid" color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="warn" type="reset">Clear</button>
+          </div>
         </div>
-        <div class="add-bottom-margin">
-          <mat-form-field>
-            <input matInput [(ngModel)]="student.createdDate" [matDatepicker]="picker" name="createdDate" placeholder="Addmision Date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-          
-        </div>
-       
-        <div class="button-row" >
-         <button mat-raised-button color="primary" type="submit">Submit</button>
-          <button mat-raised-button color="warn" type="reset">Clear</button>
-        </div>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </form>

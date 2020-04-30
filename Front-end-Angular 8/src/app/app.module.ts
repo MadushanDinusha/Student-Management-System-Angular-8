@@ -14,6 +14,7 @@ import { StudentDetailsComponent } from './components/student-details/student-de
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -25,6 +26,7 @@ import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-c
     UpdateStudentComponent,
     StudentDetailsComponent,
     MatConfirmDialogComponent,
+    AboutUsComponent,
 
   ],
   imports: [

@@ -4,6 +4,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
 import { MatDialogRef} from '@angular/material/dialog';
 import { NotificationServiceService } from 'src/app/services/notification-service.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-student',
@@ -14,13 +15,25 @@ export class CreateStudentComponent implements OnInit {
 
   student: Student = new Student();
   submitted = false;
+  registerForm: FormGroup;
+  graterThanZero : boolean;
 
   constructor(public studentService: StudentService, 
     private router: Router,
     public dialogRef : MatDialogRef<CreateStudentComponent>,
-    private notificationService: NotificationServiceService,) { }
+    private notificationService: NotificationServiceService,
+    private formBuilder: FormBuilder) { }
+    
 
-  ngOnInit(): void {
+    ngOnInit() {
+      this.registerForm = this.formBuilder.group({
+          name: ['', Validators.required],
+          address: ['', Validators.required],
+          phone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+          grade: ['', [Validators.required]],
+          gender: ['', [Validators.required, ]],
+          createdDate: ['', Validators.required],
+      });
   }
 
   newStudent() : void{
@@ -28,7 +41,7 @@ export class CreateStudentComponent implements OnInit {
   }
 
   onClear() {
-    this.notificationService.success(':: Submitted successfully');
+    this.notificationService.success('Submitted successfully');
   }
 
   save(){
@@ -38,6 +51,10 @@ export class CreateStudentComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.registerForm.invalid) {
+      return;
+  }
+
     this.submitted = true;
     this.save();   
     this.notificationService.success('Submitted successfully');

@@ -12,6 +12,7 @@ import { CreateStudentComponent } from '../create-student/create-student.compone
 import { UpdateStudentComponent } from '../update-student/update-student.component';
 import { DialogService } from 'src/app/services/dialog.service';
 import { MatConfirmDialogComponent } from '../mat-confirm-dialog/mat-confirm-dialog.component';
+import { NotificationServiceService } from 'src/app/services/notification-service.service';
 
 @Component({
   selector: 'app-student-list',
@@ -36,7 +37,8 @@ export class StudentListComponent implements OnInit {
   constructor(private studentService: StudentService,
     private router: Router,
     private dialog: MatDialog,
-    private dialogService: DialogService) {}
+    private dialogService: DialogService,
+    private notificationService: NotificationServiceService) {}
 
   ngOnInit() {
     this.loadData();
@@ -94,7 +96,11 @@ export class StudentListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
-    this.dialog.open(UpdateStudentComponent, dialogConfig).afterClosed().subscribe(()=>this.loadData());
+    this.dialog.open(UpdateStudentComponent, dialogConfig).afterClosed().subscribe(
+      res=>{
+        this.loadData();
+        this.notificationService.success('Updated Successfully');
+       });
   }
 
   onDelete(id: number){
@@ -104,6 +110,7 @@ export class StudentListComponent implements OnInit {
         this.studentService.deleteStudent(id).subscribe(res=>{
           console.log(res);
           this.loadData();
+          this.notificationService.warn('Deleted successfully');
         });
       }
     });
