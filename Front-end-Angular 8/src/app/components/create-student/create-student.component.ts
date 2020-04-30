@@ -40,7 +40,7 @@ export class CreateStudentComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.save();   
-    this.notificationService.success(':: Submitted successfully');
+    this.notificationService.success('Submitted successfully');
     this.onClose();
   }
   

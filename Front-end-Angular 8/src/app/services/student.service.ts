@@ -30,9 +30,7 @@ export class StudentService {
   }
 
   deleteStudent(id: number): Observable<any> {
-    console.log(`${this.baseUrl}/deleteById/${id}`);
     return this.httpClient.delete(`${this.baseUrl}/deleteById/${id}`, { responseType: 'text' });
-    
   }
   
   setSession(key: string, value: any): void {

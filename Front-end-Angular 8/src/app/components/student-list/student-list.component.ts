@@ -101,8 +101,10 @@ export class StudentListComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
     .afterClosed().subscribe(res =>{
       if(res){
-        this.studentService.deleteStudent(id);
-        // this.no.warn('! Deleted successfully');
+        this.studentService.deleteStudent(id).subscribe(res=>{
+          console.log(res);
+          this.loadData();
+        });
       }
     });
   }
